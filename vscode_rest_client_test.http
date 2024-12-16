@@ -1,0 +1,35 @@
+# Signup
+POST http://localhost:8000/api/v1/auth/signup
+Content-Type: application/json
+
+{
+  "first_name": "Juozas",
+  "last_name": "Polikevicius",
+  "username": "juozas",
+  "email": "juozas@co.com",
+  "password": "abcd1234"
+}
+
+### login
+# @name postLogin
+
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "juozas@co.com",
+  "password": "abcd1234"
+}
+
+### Get access_token
+@access_token = {{postLogin.response.body.access_token}}
+
+###
+
+# Get user details
+GET http://localhost:8000/api/v1/auth/me
+Authorization: Bearer {{access_token}}
+
+
+# Add a book
+
